@@ -3,44 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VibeBoard Generator</title>
+  <title>VibeBoard - Professional Brand Mood Generator</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Modern and retro fonts for style variety -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Orbitron:wght@700&family=Inter:wght@500&family=Poppins:wght@800&family=Playfair+Display:wght@600&family=Quicksand:wght@500&family=Pacifico&family=Monoton&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1 class="header__title">VibeBoard Generator</h1>
-    <div id="stepPicker" class="section">
-      <h2>Pick Your Vibe</h2>
-      <div id="fontGrid" class="options-grid"></div>
-      <div id="colorGrid" class="options-grid"></div>
-      <button id="generateBtn" class="btn primary" disabled>🎉 Generate My Moodboard</button>
-    </div>
-    <div id="previewSection" class="section hidden">
-      <h2>Your Moodboard</h2>
-      <!-- Windows 97 style preview -->
-      <div class="win97-window">
-        <div class="win97-titlebar">
-          <span class="win97-title">Moodboard.exe</span>
-          <div class="win97-buttons">
-            <span class="win97-btn">_</span>
-            <span class="win97-btn">&#9633;</span>
-            <span class="win97-btn">&#10005;</span>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1 class="brand-title">VibeBoard</h1>
+        <p class="brand-subtitle">Professional mood generator for modern brands</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Step 1: Style Selection -->
+      <section id="styleSection" class="section active">
+        <div class="section-header">
+          <h2>Choose Your Brand Style</h2>
+          <p>Select the aesthetic that represents your vision</p>
+        </div>
+        <div id="styleGrid" class="style-grid"></div>
+      </section>
+
+      <!-- Step 2: Color Palette -->
+      <section id="colorSection" class="section">
+        <div class="section-header">
+          <h2>Pick Your Color Story</h2>
+          <p>Choose colors that speak to your brand's personality</p>
+        </div>
+        <div id="colorGrid" class="color-grid"></div>
+      </section>
+
+      <!-- Step 3: Generate -->
+      <section id="generateSection" class="section">
+        <div class="generate-content">
+          <h2>Ready to Create Magic?</h2>
+          <p>Your custom moodboard will be generated using professional AI</p>
+          <button id="generateBtn" class="generate-button" disabled>
+            <span class="button-text">Generate My Moodboard</span>
+            <div class="button-glow"></div>
+          </button>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section id="resultsSection" class="section">
+        <div class="results-header">
+          <h2>Your Professional Moodboard</h2>
+          <div class="selection-summary">
+            <span id="selectedStyleName"></span> × <span id="selectedColorName"></span>
           </div>
         </div>
-        <div class="win97-content">
-          <img id="moodboard-preview" src="" alt="Moodboard">
-          <div id="loadingAnimation" class="loader hidden">Generating...</div>
+        
+        <div class="moodboard-container">
+          <div class="moodboard-frame">
+            <img id="moodboardImage" src="" alt="Generated moodboard" />
+            <div id="loadingSpinner" class="loading-spinner">
+              <div class="spinner"></div>
+              <p>Crafting your perfect mood...</p>
+            </div>
+          </div>
         </div>
+
+        <div class="action-buttons">
+          <button id="downloadBtn" class="action-btn primary">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            Download
+          </button>
+          <button id="shareBtn" class="action-btn secondary">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+            Share
+          </button>
+          <button id="newMoodboardBtn" class="action-btn secondary">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+            </svg>
+            Create Another
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="progress-nav">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
       </div>
-      <div class="action-buttons">
-        <button id="tryAgainBtn" class="btn secondary">🔄 Try Another Vibe</button>
-        <button id="downloadBtn" class="btn secondary">⬇️ Download</button>
-        <button id="shareBtn" class="btn secondary">📤 Share</button>
+      <div class="step-indicators">
+        <div class="step active" data-step="1">Style</div>
+        <div class="step" data-step="2">Colors</div>
+        <div class="step" data-step="3">Generate</div>
       </div>
-    </div>
+    </nav>
   </div>
+
   <script src="app.js"></script>
 </body>
 </html>

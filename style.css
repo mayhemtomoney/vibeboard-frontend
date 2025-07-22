@@ -1,145 +1,143 @@
-/* === Base Styles === */
 body {
-  background: #0a0a0a;
+  background: linear-gradient(135deg, #090220 0%, #09193a 55%, #2a004f 100%);
   color: #ffffff;
-  font-family: 'Helvetica Neue', sans-serif;
-  padding: 40px;
-  text-align: center;
-  margin: 0;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  margin: 0; padding: 0 0 48px 0;
+  min-height: 100vh;
 }
 
-/* === Container === */
 .container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 420px;
+  margin: 48px auto;
+  background: rgba(30,48,90,0.92);
+  border-radius: 18px;
+  padding: 38px 22px 18px;
+  box-shadow: 0 4px 48px #0ff8, 0 1.5px 0 #ff00e6bb;
+  text-align: center;
 }
 
-/* === Section Styling === */
-.section {
-  margin-bottom: 36px;
+.header__title {
+  letter-spacing: 2px;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 45px #d000d0;
+  margin-bottom: 18px;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
 }
 
 .options-grid {
   display: flex;
   flex-wrap: wrap;
+  gap: 15px;
   justify-content: center;
-  gap: 18px;
-  margin: 25px 0 22px 0;
+  margin: 18px 0 18px 0;
 }
 
-/* === Card Buttons (Font & Color Selections) === */
 .card {
-  border: 2px solid white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  min-width: 120px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-size: 1.16rem;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(135deg, #121212, #1e1e1e);
-  box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
-}
-
-.card:hover {
-  border-color: #00d9ff;
-  background: linear-gradient(135deg, #101f2c, #003346);
-  box-shadow: 0 0 18px rgba(0, 217, 255, 0.4);
-  color: #00d9ff;
-  transform: scale(1.05);
-}
-
-.card.selected {
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.3), rgba(0, 217, 255, 0.1));
-  border-color: #00d9ff;
-  box-shadow: 0 0 15px #00d9ff;
-}
-
-/* === Buttons === */
-.btn {
-  padding: 14px 28px;
-  font-size: 16px;
-  border-radius: 8px;
+  background: linear-gradient(130deg, #18182a 80%, #230c38 100%);
+  border: 2px solid #0ff;
+  box-shadow: 0 0 16px #00eaff22;
   cursor: pointer;
-  margin: 12px;
-  transition: all 0.2s ease;
-  font-weight: bold;
-  letter-spacing: 0.5px;
+  transition: all .19s;
 }
+.card:hover, .card.selected {
+  border-color: #ff60ff;
+  color: #ff61ff;
+  background: linear-gradient(120deg, #253d77 60%, #2b007a);
+  box-shadow: 0 0 24px #ff60ff, 0 1px 0 #00fff6;
+  transform: scale(1.07);
+}
+.card .small { font-size: 0.86em; color: #b6b6b6; letter-spacing: 0.03em; display: block; margin-top: 3px; }
 
-.btn.primary {
-  background: linear-gradient(135deg, #00d9ff, #01b0c8);
-  color: #000;
+.btn {
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1.14rem;
+  font-family: inherit;
   border: none;
-  box-shadow: 0 2px 10px rgba(0, 217, 255, 0.4);
-}
-
-.btn.primary:hover {
-  background: linear-gradient(135deg, #01b0c8, #00d9ff);
-  transform: scale(1.05);
-  box-shadow: 0 2px 18px rgba(0, 217, 255, 0.6);
-}
-
-.btn.secondary {
-  background: #222;
-  color: white;
-  border: 1px solid #555;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
-}
-
-.btn.secondary:hover {
-  background: #333;
-  transform: scale(1.03);
-}
-
-/* === Vibe Preview Section === */
-.preview-box {
-  margin: 22px auto 16px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 18px;
-  padding: 24px 10px 12px;
-  max-width: 95vw;
-}
-
-#moodboard-preview {
-  border: 3px solid #12fff0;
-  border-radius: 14px;
-  box-shadow: 0 0 24px #0ff, 0 0 48px #ff61ff88;
-  margin-bottom: 14px;
-  min-height: 240px;
-  max-width: 100%;
-}
-
-/* === Loader Animation === */
-.loader {
-  margin-top: 16px;
-  font-style: italic;
-  color: #00d9ff;
   font-weight: bold;
-  letter-spacing: 1.5px;
-  animation: loader-glow 1s infinite alternate;
+  margin: 12px 8px 0 8px;
+  background: linear-gradient(90deg, #00fff0 65%, #ff61ff 150%);
+  color: #000;
+  box-shadow: 0 2px 16px #0ff9;
+  transition: 0.17s;
+  cursor: pointer;
+}
+.btn:active { filter: brightness(1.08); }
+.btn.secondary {
+  background: #221e2a;
+  color: #fff;
+  border: 1px solid #888;
+  box-shadow: 0 1.5px 8px #fff2;
+}
+.btn.secondary:hover {
+  background: #34144a;
+  color: #fff;
 }
 
-@keyframes loader-glow {
-  0%   { letter-spacing: 1px; transform: scale(1); }
-  100% { letter-spacing: 4px; transform: scale(1.07); }
+.win97-window {
+  border: 2.5px solid #444;
+  background: #d4d0c8;
+  width: 350px;
+  margin: 34px auto 22px;
+  box-shadow: 5px 5px #8883, 10px 10px 0 #3333;
+  border-radius: 4px;
+  font-family: 'MS Sans Serif', 'Tahoma', Arial, sans-serif;
 }
-
-/* === Header Styling === */
-.header__title {
-  font-size: 2.5rem;
-  font-family: 'Orbitron', 'Segoe UI', sans-serif;
-  letter-spacing: 2px;
-  margin-bottom: 24px;
-  color: #00d9ff;
-  text-shadow:
-    0 0 5px #00d9ff,
-    0 0 10px #00d9ff,
-    0 0 15px #ff00cc;
+.win97-titlebar {
+  background: linear-gradient(90deg, #0a246a, #3a6ea5 90%);
+  color: white;
+  padding: 5px 12px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2.5px solid #2d4a7e;
+  border-radius: 3px 3px 0 0;
 }
-
-/* === Utility Classes === */
-.hidden {
-  display: none !important;
+.win97-title { font-weight: bold; font-size: 15px; letter-spacing: 0.5px; }
+.win97-buttons { display: flex; gap: 5px; }
+.win97-btn {
+  background: #d4d0c8;
+  color: #333;
+  border: 2px outset #fff;
+  padding: 0 7px;
+  border-radius: 2.5px;
+  font-size: 15px;
+  cursor: pointer;
 }
+.win97-btn:hover { background: #eee; }
+.win97-content {
+  background: #fff;
+  padding: 18px 0 12px;
+  border-radius: 0 0 3px 3px;
+}
+#moodboard-preview {
+  border: 2px inset #aaa;
+  background: #e7e7e7;
+  margin-bottom: 10px;
+  max-width: 100%;
+  border-radius: 2px;
+  min-height: 210px;
+  opacity: 0.25;
+  transition: opacity 0.36s;
+}
+#moodboard-preview.loaded { opacity: 1; }
+.loader {
+  margin-top: 18px;
+  font-style: italic;
+  color: #0073e6;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1em;
+  display: none;
+}
+.loader.active { display: inline-block; animation: loaderflicker 1.12s infinite alternate; }
+@keyframes loaderflicker {
+  0% { filter: brightness(1.5); }
+  100% { filter: brightness(1); }
+}
+.hidden { display: none !important;}

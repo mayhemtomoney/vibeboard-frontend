@@ -1,188 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VibeBoard Generator - Craft Your Brand's Character</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VibeBoard Generator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <h1 class="header__title">VibeBoard Generator</h1>
-            <p class="header__tagline">Craft Your Brand's Character</p>
-        </div>
-    </header>
 
-    <!-- Progress Indicator -->
-    <div class="progress-section">
-        <div class="container">
-            <div class="progress">
-                <div class="progress__bar">
-                    <div class="progress__fill" id="progressFill"></div>
-                </div>
-                <div class="progress__steps">
-                    <div class="progress__step active" data-step="1">
-                        <span class="progress__step-number">1</span>
-                        <span class="progress__step-label">Font Personality</span>
-                    </div>
-                    <div class="progress__step" data-step="2">
-                        <span class="progress__step-number">2</span>
-                        <span class="progress__step-label">Color Mood</span>
-                    </div>
-                    <div class="progress__step" data-step="3">
-                        <span class="progress__step-number">3</span>
-                        <span class="progress__step-label">Generate Vibe</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <h1 class="header__title">VibeBoard Generator</h1>
+
+    <!-- Step Picker -->
+    <div id="stepPicker" class="section">
+      <h2>Pick Your Vibe</h2>
+      <div id="fontGrid" class="options-grid"></div>
+      <div id="colorGrid" class="options-grid"></div>
+      <button id="generateBtn" class="btn primary" disabled>🎉 Generate My Moodboard</button>
     </div>
 
-    <!-- Main Content -->
-    <main class="main">
-        <div class="container">
-            <div class="generator">
-                <!-- Left Panel - Controls -->
-                <div class="generator__controls">
-                    <!-- Achievements Panel -->
-                    <div class="achievements">
-                        <h3 class="achievements__title">Achievements</h3>
-                        <div class="achievements__list" id="achievementsList"></div>
-                    </div>
+    <!-- Preview Section -->
+    <div id="previewSection" class="section hidden">
+      <h2>Your Moodboard</h2>
+      <div class="preview-box">
+        <img id="moodboard-preview" src="" alt="Your vibe appears here" style="max-width: 90%; border-radius: 16px;">
+        <div id="loadingAnimation" class="loader hidden">Loading...</div>
+      </div>
+      <div class="action-buttons">
+        <button id="tryAgainBtn" class="btn secondary">🔄 Try Another Vibe</button>
+        <button id="downloadBtn" class="btn secondary">⬇️ Download</button>
+        <button id="shareBtn" class="btn secondary">📤 Share</button>
+      </div>
+    </div>
+  </div>
 
-                    <!-- Font Personality Section -->
-                    <section class="section" id="fontSection">
-                        <h2 class="section__title">Choose Your Font Personality</h2>
-                        <div class="font-grid" id="fontGrid"></div>
-                    </section>
-
-                    <!-- Color Mood Section -->
-                    <section class="section hidden" id="colorSection">
-                        <h2 class="section__title">Select Your Color Mood</h2>
-                        <div class="color-grid" id="colorGrid"></div>
-                    </section>
-
-                    <!-- Generation Section -->
-                    <section class="section hidden" id="generateSection">
-                        <h2 class="section__title">Generate Your VibeBoard</h2>
-                        <div class="generation-controls">
-                            <button class="btn btn--primary btn--lg" id="generateBtn">
-                                <span class="btn__text">Generate My Vibe</span>
-                                <span class="btn__glow"></span>
-                            </button>
-                            <button class="btn btn--secondary" id="randomizeBtn">
-                                <span class="btn__text">Surprise Me</span>
-                                <span class="btn__glow"></span>
-                            </button>
-                        </div>
-                    </section>
-
-                    <!-- Results Section -->
-                    <section class="section hidden" id="resultsSection">
-                        <h2 class="section__title">Your Brand Identity</h2>
-                        <div class="results-actions">
-                            <button class="btn btn--primary" id="downloadBtn">
-                                <span class="btn__text">Download VibeBoard</span>
-                                <span class="btn__glow"></span>
-                            </button>
-                            <button class="btn btn--secondary" id="shareBtn">
-                                <span class="btn__text">Share Creation</span>
-                                <span class="btn__glow"></span>
-                            </button>
-                            <button class="btn btn--outline" id="restartBtn">
-                                <span class="btn__text">Create Another</span>
-                                <span class="btn__glow"></span>
-                            </button>
-                        </div>
-                        <div class="upgrade-cta">
-                            <h3>Ready for the Full Experience?</h3>
-                            <p>Unlock unlimited brand variations with the AI Creator Vault</p>
-                            <button class="btn btn--primary btn--lg">
-                                <span class="btn__text">Upgrade Now</span>
-                                <span class="btn__glow"></span>
-                            </button>
-                        </div>
-                    </section>
-                </div>
-
-                <!-- Right Panel - Preview -->
-                <div class="generator__preview">
-                    <div class="preview-panel">
-                        <h3 class="preview-panel__title">Live Preview</h3>
-                        
-                        <!-- Loading Animation -->
-                        <div class="loading-animation hidden" id="loadingAnimation">
-                            <div class="loading__spinner"></div>
-                            <div class="loading__text">Generating your vibe...</div>
-                        </div>
-
-                        <!-- Brand Preview -->
-                        <div class="brand-preview" id="brandPreview">
-                            <!-- Logo Preview -->
-                            <div class="preview-item">
-                                <h4 class="preview-item__title">Logo</h4>
-                                <div class="logo-preview" id="logoPreview">
-                                    <span class="logo-text">Your Brand</span>
-                                </div>
-                            </div>
-
-                            <!-- Business Card Preview -->
-                            <div class="preview-item">
-                                <h4 class="preview-item__title">Business Card</h4>
-                                <div class="card-preview" id="cardPreview">
-                                    <div class="card-front">
-                                        <div class="card-logo">Your Brand</div>
-                                        <div class="card-info">
-                                            <div class="card-name">Your Name</div>
-                                            <div class="card-title">Brand Creator</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Website Header Preview -->
-                            <div class="preview-item">
-                                <h4 class="preview-item__title">Website Header</h4>
-                                <div class="website-preview" id="websitePreview">
-                                    <div class="website-nav">
-                                        <div class="website-logo">Your Brand</div>
-                                        <div class="website-menu">
-                                            <span>Home</span>
-                                            <span>About</span>
-                                            <span>Services</span>
-                                            <span>Contact</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Social Media Preview -->
-                            <div class="preview-item">
-                                <h4 class="preview-item__title">Social Profile</h4>
-                                <div class="social-preview" id="socialPreview">
-                                    <div class="social-header">
-                                        <div class="social-avatar"></div>
-                                        <div class="social-info">
-                                            <div class="social-name">Your Brand</div>
-                                            <div class="social-handle">@yourbrand</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Focus Mode Toggle -->
-    <button class="focus-toggle" id="focusToggle" aria-label="Toggle Focus Mode">
-        <span class="focus-toggle__icon">👁️</span>
-    </button>
-
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

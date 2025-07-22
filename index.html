@@ -5,26 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VibeBoard Generator</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Modern and retro fonts for style variety -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Orbitron:wght@700&family=Inter:wght@500&family=Poppins:wght@800&family=Playfair+Display:wght@600&family=Quicksand:wght@500&family=Pacifico&family=Monoton&family=Press+Start+2P&display=swap" rel="stylesheet" />
 </head>
 <body>
-
   <div class="container">
     <h1 class="header__title">VibeBoard Generator</h1>
-
-    <!-- Step Picker -->
     <div id="stepPicker" class="section">
       <h2>Pick Your Vibe</h2>
       <div id="fontGrid" class="options-grid"></div>
       <div id="colorGrid" class="options-grid"></div>
       <button id="generateBtn" class="btn primary" disabled>🎉 Generate My Moodboard</button>
     </div>
-
-    <!-- Preview Section -->
     <div id="previewSection" class="section hidden">
       <h2>Your Moodboard</h2>
-      <div class="preview-box">
-        <img id="moodboard-preview" src="" alt="Your vibe appears here" style="max-width: 90%; border-radius: 16px;">
-        <div id="loadingAnimation" class="loader hidden">Loading...</div>
+      <!-- Windows 97 style preview -->
+      <div class="win97-window">
+        <div class="win97-titlebar">
+          <span class="win97-title">Moodboard.exe</span>
+          <div class="win97-buttons">
+            <span class="win97-btn">_</span>
+            <span class="win97-btn">&#9633;</span>
+            <span class="win97-btn">&#10005;</span>
+          </div>
+        </div>
+        <div class="win97-content">
+          <img id="moodboard-preview" src="" alt="Moodboard">
+          <div id="loadingAnimation" class="loader hidden">Generating...</div>
+        </div>
       </div>
       <div class="action-buttons">
         <button id="tryAgainBtn" class="btn secondary">🔄 Try Another Vibe</button>
@@ -33,7 +41,6 @@
       </div>
     </div>
   </div>
-
   <script src="app.js"></script>
 </body>
 </html>
